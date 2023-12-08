@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.ActivityResultRegistry
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.tosspayments.paymentsdk.activity.TossPaymentActivity
@@ -33,6 +34,17 @@ class TossPayments(private val clientKey: String) : TossPayment {
             onFailed: (TossPaymentResult.Fail) -> Unit
         ): ActivityResultLauncher<Intent> {
             return activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                handlePaymentResult(result, onSuccess, onFailed)
+            }
+        }
+
+        @JvmStatic
+        fun getPaymentResultLauncher(
+            activityResultRegistry: ActivityResultRegistry,
+            onSuccess: (TossPaymentResult.Success) -> Unit,
+            onFailed: (TossPaymentResult.Fail) -> Unit
+        ): ActivityResultLauncher<Intent> {
+            return activityResultRegistry.register("getPaymentResultLauncher", ActivityResultContracts.StartActivityForResult()) { result ->
                 handlePaymentResult(result, onSuccess, onFailed)
             }
         }
