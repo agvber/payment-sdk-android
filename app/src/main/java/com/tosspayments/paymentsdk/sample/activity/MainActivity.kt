@@ -56,6 +56,10 @@ class MainActivity : AppCompatActivity() {
             OutlineButton(text = "결제위젯") {
                 startPaymentActivity(PaymentWidgetInfoActivity::class.java)
             }
+
+            OutlineButton(text = "Jetpack compose 테스트") {
+                startPaymentActivity(PaymentWidgetComposeActivity::class.java)
+            }
         }
     }
 
