@@ -1,3 +1,7 @@
+### 수정된 라이브러리 입니다
+Jetpack compose를 사용하기 위에 약간 수정 하였습니다
+
+
 # 토스페이먼츠 Android SDK
 
 토스페이먼츠 Android SDK로 [결제창](https://docs.tosspayments.com/guides/payment/integration), [결제위젯](https://docs.tosspayments.com/guides/payment-widget/overview)을 Android 앱에 연동하세요.
